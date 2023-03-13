@@ -4,12 +4,15 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProjectPage from "./pages/ProjectPage";
+import NewProjectPage from "./pages/NewProjectPage";
+import PledgePage from "./pages/PledgePage";
 
 // Components
 import Nav from "./components/Nav/nav";
 
 // CSS
 import "./App.css";
+
 
 const HeaderLayout = () => (
   <div>
@@ -22,9 +25,11 @@ const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
-      { path: "/", element: <HomePage /> },
+      { path: "/home", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
+      { path: "/pledges/:id", element: <PledgePage />},
+      { path: "/newproject/", element: <NewProjectPage />},
     ],
   },
 ]);

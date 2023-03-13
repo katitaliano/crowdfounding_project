@@ -1,6 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 #project-list {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 30% 30% 30%;
-    column-gap: 10px;
-    row-gap: 10px;
+    column-gap: 25px;
+    row-gap: 25px; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 } 
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+}
+
+body {
+    text-align: left;
+}
+
+header {
+    padding: 5px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;;
+    color: darkslategray;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    color: darkslategray;
+}
+
+h3 {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: darkslategray;
+    text-align: start;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+}
+
+nav {
+    background-color: lightslategray;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    padding: 20px;
+    text-align: right;
+}
+
+nav a {
+    border-left: 2px solid white;
+    color: white;   
+    text-decoration: none;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+a {
+    color: lightslategray;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    /* text-decoration: underline; */
+}
+
+div {
+    padding: 20px 20px 20px 20px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    color: gray;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-style: oblique;
+    padding-top: 20px;
+    object-fit: cover;
+}
+
+footer {
+    background-color:lightslategray;
+    padding: 20px;
+    text-align: left;
+    color: white;
+}
+
+footer a {
+    border-left: 2px solid white;
+    color: white;   
+    text-decoration: none;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.centered {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.bar {
+    background-color: lightslategray;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}    
+
+.projectimage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+}
+
+.imagewrapper {
+    padding: 20px;
+}
+
+.width {
+    width: 93%;
+    padding: 20px;
+}
+
+
+@media (min-width:200px) {
+    .projectimage {
+        width: 75%;
+    }
+    .container {
+    padding: 0px;
+    }
+    nav {
+        font-size: 1.25rem;
+        
+    }  
+    h1 {
+        font-size: 2.2rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (min-width:900px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px;
+    }
+   .width {
+    width: 50%;
+    }
+   .projectimage {
+    width: 100%;
+    }
+}
+
+form {
+    margin: auto;
+    width: 100%;
+} 
+
+.form-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+    padding: 18px;
+}
+
+.form-item label {
+    flex-basis: 150px;
+    font-size: 1.2rem;
+    color: darkslategray;
+}
+
+.form-item input,
+.form-item textarea {
+    flex-basis: 50%;
+    border: 2px solid darkslategray;
+    color: darkslategray;
+}
+
+.form-item input:hover,
+.form-item textarea:hover {
+    border: 2px solid lightslategray;
+}
+
+.form-item input,
+.form-item textarea {
+    border-radius: 10px;
+    border: 2px solid darkslategray;
+    background-color: white;
+    padding: 5px;
+}
+
+.form-item button:hover {
+    border: 2px solid lightslategray;
+    background-color: lightslategray;
+    color: white;
+}
+
+.form-item button {
+    border-radius: 10px;
+    width: 30%;
+    font-size: 1.2rem;
+    color: darkslategray
+}

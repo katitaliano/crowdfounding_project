@@ -8,7 +8,7 @@ function LoginForm() {
     password: "",
   });
 
-  // Hooks
+  // Hooks 
   const navigate = useNavigate();
 
   // Actions
@@ -41,14 +41,15 @@ function LoginForm() {
     if (credentials.username && credentials.password) {
       const { token } = await postData();
       window.localStorage.setItem("token", token);
-      navigate("/");
+      navigate("/home");
     }
+    else (navigate ("/login"))
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Username: </label>
         <input
           type="text"
           id="username"
@@ -57,7 +58,7 @@ function LoginForm() {
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Password:  </label>
         <input
           type="password"
           id="password"
