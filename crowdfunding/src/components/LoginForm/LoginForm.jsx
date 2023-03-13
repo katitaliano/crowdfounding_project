@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm() {
+function LoginForm(props) {
   // State
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
+
+  const {isLoggedIn, setIsLoggedIn}= useState({
+    isLoggedIn: false});
 
   // Hooks 
   const navigate = useNavigate();
@@ -41,6 +44,7 @@ function LoginForm() {
     if (credentials.username && credentials.password) {
       const { token } = await postData();
       window.localStorage.setItem("token", token);
+      setIsLoggedIn(true);
       navigate("/home");
     }
     else (navigate ("/login"))

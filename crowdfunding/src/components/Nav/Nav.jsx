@@ -1,24 +1,29 @@
 import { Link } from "react-router-dom";
+import LoginForm from "../LoginForm/LoginForm";
 
-function Nav() {
+function Nav(props) {
     const authToken = window.localStorage.getItem("token");
+
+
     if (authToken) {
         return (
             <nav>
-            <Link to="/home">Home</Link>
-            <Link to="/newproject">New Project</Link>
-            {/* Log out */}
+                <Link to="/home">Home</Link>
+                <Link to="/newproject">New Project</Link>
             </nav>
-        );
-        }
-    else
+            );
+    }
+    else {  
         return (
-            <nav>
-            <Link to="/home">Home</Link>
-            <Link to="/login">Log In</Link> 
-            {/* Register    */}
-            </nav>
-        );
+        <nav>
+        <Link to="/home">Home</Link>
+        <Link to="/login">Log In</Link> 
+        </nav>
+        ); 
+    }
 }
-
 export default Nav;
+
+
+//{/* <Link onClick={window.localStorage.removeItem("token")} to="/login">Log Out</Link> */}
+//<Link to="/newuser">Register</Link>
