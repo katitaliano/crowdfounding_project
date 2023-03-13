@@ -45,7 +45,7 @@ function LoginForm(props) {
       const { token } = await postData();
       window.localStorage.setItem("token", token);
       setIsLoggedIn(true);
-      navigate("/home");
+      navigate("/");
     }
     else (navigate ("/login"))
   };

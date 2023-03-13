@@ -8,7 +8,7 @@ function Nav(props) {
     if (authToken) {
         return (
             <nav>
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
                 <Link to="/newproject">New Project</Link>
             </nav>
             );
@@ -16,7 +16,7 @@ function Nav(props) {
     else {  
         return (
         <nav>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/login">Log In</Link> 
         </nav>
         ); 
