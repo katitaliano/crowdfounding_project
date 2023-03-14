@@ -8,8 +8,8 @@ function LoginForm(props) {
     password: "",
   });
 
-  const {isLoggedIn, setIsLoggedIn}= useState({
-    isLoggedIn: false});
+  // const {isLoggedIn, setIsLoggedIn}= useState({
+  //   isLoggedIn: false});
 
   // Hooks 
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ function LoginForm(props) {
     if (credentials.username && credentials.password) {
       const { token } = await postData();
       window.localStorage.setItem("token", token);
-      setIsLoggedIn(true);
+      // setIsLoggedIn(true);
       navigate("/");
     }
     else (navigate ("/login"))
