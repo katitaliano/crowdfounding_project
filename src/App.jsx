@@ -8,7 +8,7 @@ import NewProjectPage from "./pages/NewProjectPage";
 import PledgePage from "./pages/PledgePage";
 
 // Components
-import Nav from "./components/Nav/nav";
+import Nav from "./components/Nav/Nav";
 
 // CSS
 import "./App.css";
