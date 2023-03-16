@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom";
-import LoginForm from "../LoginForm/LoginForm";
+// import LoginForm from "../LoginForm/LoginForm";
 
-function Nav(props) {
-    const authToken = window.localStorage.getItem("token");
+// destructured props inside braces. We've told the nav what these props are in app.jsx
 
+function Nav({loggedIn, setLoggedIn}) {
 
-    if (authToken) {
+    const handleLogout = () => {
+        window.localStorage.removeItem("token")
+        return setLoggedIn(false)
+    };
+
+    if (loggedIn) {
         return (
             <nav>
-                <Link to="/">Home</Link>
+                <Link to="/">Projects Home</Link>
                 <Link to="/newproject">New Project</Link>
+                <Link onClick={handleLogout} to="/login" >Log Out</Link>
             </nav>
             );
     }
     else {  
         return (
         <nav>
-        <Link to="/">Home</Link>
+        <Link to="/">Projects Home</Link>
         <Link to="/login">Log In</Link> 
         </nav>
         ); 

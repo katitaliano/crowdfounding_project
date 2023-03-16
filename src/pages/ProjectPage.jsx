@@ -6,7 +6,7 @@ import ProjectCard from "../components/ProjectCard/ProjectCard";
 
 //declaring a variable from a hook - useParams. Libraries create a hook and you can pull stuff out with this syntax.
 
-function ProjectPage(props) {
+function ProjectPage() {
   // Hooks
   const { id } = useParams();
   // State
@@ -16,6 +16,9 @@ function ProjectPage(props) {
 
 //  useEffect = how you want your app to be used
 //  JS is a 'single threaded coding language' works line by line top to bottom. Async tells project what to fetch and where to get the data from (what URL). Console logging results then adding data, then seeing if any errors, then get
+// summing up total pledges look at array.reduce function
+// display username or anonymous - fetch request supporter via ID and get username from that
+// date - to date string look up in JS docs
 
    useEffect(() => {
      const fetchProject = async () => {
@@ -23,9 +26,9 @@ function ProjectPage(props) {
          const res = await fetch(
            `${import.meta.env.VITE_API_URL}projects/${id}`
          );
-         console.log(res);
          const data = await res.json();
          setProjectData(data);
+         console.log(data);
        } catch (err) {
          console.log(err);
        }
@@ -37,24 +40,17 @@ function ProjectPage(props) {
     <div>
       <div>
         <h2>{projectData.title}</h2>
-        <img src={projectData.image} className= ".projectimage" ></img>
+        <img src={projectData.image} className="projectimage" />
       </div>
       <div>
         <h3>Project Description</h3>
         <p>{projectData.description}</p>
-        <h3>Project Status</h3>
-        <p>{`${projectData.is_open}`}</p>
-      </div>
-      <div>
-        <h3>Make a Pledge:</h3>
-        <button><Link to={`/pledges/${id}`}>Pledge Here!</Link></button>
-        <h3>Total pledged:</h3>
-        <p></p>
-        <h3>Project target:</h3>
-        <p>${projectData.target}.00</p>
-      </div>
-      <div>
-        <h3>Pledges:</h3>
+        <h3>Project Status:</h3>
+        <p>{projectData.is_open ? "Open" : "Closed"}
+        {/* ? "" : "" = ternary operator, short for if else */}
+        </p>
+        <h3><Link to={`/pledges/${id}`}>Click to make a pledge!</Link></h3>
+        <h3>Supporters:</h3>
         <ul>
           {projectData.pledges.map((pledgeData, key) => {
             return (
@@ -64,10 +60,15 @@ function ProjectPage(props) {
             );
           })}
         </ul>
+        <h3>Total pledged:</h3>
+        <p>
+        </p>
+        <h3>Project target:</h3>
+        <p>${projectData.target}.00</p>
       </div>
       <div>
         <h3>Project created at:</h3>
-        <p>{projectData.date_created}</p>
+        <p>{new Date(projectData.date_created).toDateString()}</p>
       </div>
     </div>
    );

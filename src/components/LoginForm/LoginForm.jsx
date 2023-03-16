@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext} from "react-router-dom";
 
-function LoginForm(props) {
-  // State
+//outletContext = shared context between different components, e.g. shared state that lives in multiple components that you don't want to pass individually. Skips having to pass it all the way down (prop drilling - google this, avoid prop drilling where possible). There is also useContext in react, this is React Router's version.
+// When you have a context you have to SET the context. 
+// have created a default value for the following prop redirectURL
+function LoginForm({redirectURL = "/"}) {
+  const [, setLoggedIn] = useOutletContext();
+  // // State
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-
-  // const {isLoggedIn, setIsLoggedIn}= useState({
-  //   isLoggedIn: false});
 
   // Hooks 
   const navigate = useNavigate();
@@ -17,7 +18,6 @@ function LoginForm(props) {
   // Actions
   const handleChange = (event) => {
     const { id, value } = event.target;
-
     setCredentials((prevCredentials) => ({
       ...prevCredentials,
       [id]: value,
@@ -26,30 +26,32 @@ function LoginForm(props) {
 
   const postData = async () => {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}api-token-auth/`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          
-        },
-        body: JSON.stringify(credentials),
-      }
+        `${import.meta.env.VITE_API_URL}api-token-auth/`,
+        {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(credentials),
+        }
     );
     return response.json();
-  };
+};
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (credentials.username && credentials.password) {
-      const { token } = await postData();
-      window.localStorage.setItem("token", token);
-      // setIsLoggedIn(true);
-      navigate("/");
+        const { token } = await postData();
+            window.localStorage.setItem("token", token);
+            setLoggedIn(true)
+            return navigate(redirectURL);
     }
-    else (navigate ("/login"))
-  };
-
+     else {
+            setLoggedIn(false)
+            return navigate("/login");
+            // good practice to add a return to the last line of a function
+        }
+    }
   return (
     <form onSubmit={handleSubmit}>
       <div>
