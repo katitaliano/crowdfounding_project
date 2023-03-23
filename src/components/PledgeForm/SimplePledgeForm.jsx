@@ -82,10 +82,10 @@ function PledgeForm(props)
                     onChange={handleChange} value={pledgeFormData.comment}
                     />
                 </div>
-                <div className="form-item">
-                    <button type="submit">Submit Pledge!</button>
-                </div>
-            </div>    
+                  <div className="form-item">
+                      <button type="submit">Submit Pledge!</button>
+                  </div>
+              </div> 
         </form>
      );
 }

@@ -54,7 +54,7 @@ function LoginForm({redirectURL = "/"}) {
     }
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="form-item">
         <label htmlFor="username">Username: </label>
         <input
           type="text"
@@ -63,7 +63,7 @@ function LoginForm({redirectURL = "/"}) {
           placeholder="Enter username"
         />
       </div>
-      <div>
+      <div className="form-item">
         <label htmlFor="password">Password:  </label>
         <input
           type="password"
@@ -72,7 +72,10 @@ function LoginForm({redirectURL = "/"}) {
           placeholder="Password"
         />
       </div>
-      <button type="submit">Login</button>
+      <div className="form-item">
+        <button type="submit">Login</button>
+      </div>
+      
     </form>
   );
 }

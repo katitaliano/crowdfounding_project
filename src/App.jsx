@@ -1,11 +1,13 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
+
 // Pages
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProjectPage from "./pages/ProjectPage";
 import NewProjectPage from "./pages/NewProjectPage";
 import PledgePage from "./pages/PledgePage";
+
 
 // Components
 import Nav from "./components/Nav/Nav";

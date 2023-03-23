@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 #project-list {
-    /* display: grid;
-    grid-template-columns: 30% 30% 30%;
-    column-gap: 25px;
-    row-gap: 25px; */
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    padding: 0px;
 } 
+
+.projectlist {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:space-between;
+}
 
 html {
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +17,8 @@ html {
 
 body {
     text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px
 }
 
 header {
@@ -24,47 +26,51 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
-    line-height: 3rem;;
+    font-size: 1.3rem;
+    line-height: 2rem;;
     color: darkslategray;
-    padding: 20px;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 h2 {
-    font-size: 1.8rem;
-    line-height: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
     color: darkslategray;
 }
 
 h3 {
-    font-size: 1.25rem;
-    line-height: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
     color: darkslategray;
     text-align: start;
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 1.7rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+i {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    font-style: italic;
 }
 
 nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
     background-color: lightslategray;
-    font-size: 1.5rem;
-    line-height: 1.7rem;
-    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    margin-bottom: 45px;
     text-align: right;
 }
 
 nav a {
-    border-left: 2px solid white;
     color: white;   
     text-decoration: none;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 8px;
 }
 
 a {
@@ -77,9 +83,6 @@ a:hover {
     /* text-decoration: underline; */
 }
 
-div {
-    padding: 20px 20px 20px 20px;
-}
 
 img {
     display: block;
@@ -94,26 +97,13 @@ img {
     object-fit: cover;
 }
 
-footer {
-    background-color:lightslategray;
-    padding: 20px;
-    text-align: left;
-    color: white;
-}
-
-footer a {
-    border-left: 2px solid white;
-    color: white;   
-    text-decoration: none;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
 .centered {
     text-align: center;
     padding-top: 30px;
+}
+
+.padded {
+    padding: 10px 10px 10px 10px;
 }
 
 .bar {
@@ -126,13 +116,14 @@ footer a {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
 }    
 
 .projectimage {
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
+    padding: 10px 0px 0px 0px;
 
 }
 
@@ -145,39 +136,6 @@ footer a {
     padding: 20px;
 }
 
-
-@media (min-width:200px) {
-    .projectimage {
-        width: 75%;
-    }
-    .container {
-    padding: 0px;
-    }
-    nav {
-        font-size: 1.25rem;
-        
-    }  
-    h1 {
-        font-size: 2.2rem;
-        line-height: 2.5rem;
-    }
-}
-
-@media (min-width:900px) {
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0px;
-    }
-   .width {
-    width: 50%;
-    }
-   .projectimage {
-    width: 100%;
-    }
-}
-
 form {
     margin: auto;
     width: 100%;
@@ -185,21 +143,23 @@ form {
 
 .form-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: start;
-    align-items: end;
-    padding: 18px;
+    align-items: center;
+    padding: 5px;
 }
 
 .form-item label {
-    flex-basis: 150px;
-    font-size: 1.2rem;
+    flex-basis: 100%;
+    flex-grow: 1;
+    font-size: 1rem;
     color: darkslategray;
 }
 
 .form-item input,
 .form-item textarea {
-    flex-basis: 50%;
+    flex-basis: 100%;
+    flex-grow: 1;
     border: 2px solid darkslategray;
     color: darkslategray;
 }
@@ -215,6 +175,16 @@ form {
     border: 2px solid darkslategray;
     background-color: white;
     padding: 5px;
+    margin: 10px;
+}
+
+.form-item button {
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1rem;
+    color: darkslategray;
+    margin-top: 20px;
+    padding: 8px;
 }
 
 .form-item button:hover {
@@ -223,9 +193,97 @@ form {
     color: white;
 }
 
-.form-item button {
-    border-radius: 10px;
-    width: 30%;
-    font-size: 1.2rem;
-    color: darkslategray
+.button-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+}
+
+@media (min-width:320px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px;
+    }
+
+    .form-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+}
+@media (min-width:500px) {
+    
+    h1 {
+        font-size: 1.7rem;
+        line-height: 2.2rem;;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px;
+    }
+
+    .imagewrapper {
+        padding: 0px;
+    }
+    .container {
+    padding: 0px;
+    }
+
+    .projectimage {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        padding: 10px 0px 20px 0px;
+    }
+
+    .form-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .form-item label {
+        flex-basis: 30%;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        background-color: lightslategray;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        margin-bottom: 45px;
+        text-align: center;
+    }
+    
+    nav a {
+        color: white;   
+        text-decoration: none;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        padding: 5px 8px 5px 8px;
+    }
+    
+}
+
+@media (min-width:900px) {
+
+    .projectlist {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content:space-between;
+    }
+   .width {
+    width: 50%;
+    }
+   .projectimage {
+    width: 100%;
+    }
 }
