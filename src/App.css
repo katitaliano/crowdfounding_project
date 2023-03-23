@@ -144,7 +144,6 @@ form {
 .form-item {
     display: flex;
     flex-direction: column;
-    justify-content: start;
     align-items: center;
     padding: 5px;
 }
@@ -280,10 +279,8 @@ form {
         flex-flow: row wrap;
         justify-content:space-between;
     }
-   .width {
-    width: 50%;
-    }
+   
    .projectimage {
-    width: 100%;
+        width: 100%;
     }
 }
