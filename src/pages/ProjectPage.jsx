@@ -40,6 +40,16 @@ function ProjectPage() {
         <h3>Project target: </h3>
         <p> ${projectData.target}.00</p>
         <h3><Link to={`/pledges/${id}`}>Click here to make a pledge!</Link></h3>
+        <h3>Supporters:</h3>
+        <ul>
+         {projectData.pledges.map((pledgeData, key) => {
+           return (
+             <li key={key}>
+               ${pledgeData.amount} from Supporter ID {pledgeData.supporter}
+             </li>
+           );
+         })}
+       </ul>
         <i>Project created {new Date(projectData.date_created).toDateString()}</i>
       </div>
       
