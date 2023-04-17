@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import ProjectPage from "./pages/ProjectPage";
 import NewProjectPage from "./pages/NewProjectPage";
 import PledgePage from "./pages/PledgePage";
+import ProjectEditPage from "./pages/ProjectEditPage";
 
 
 // Components
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
+      { path: "/project/:id/edit", element: <ProjectEditPage /> },
       { path: "/pledges/:id", element: <PledgePage />},
       { path: "/newproject/", element: <NewProjectPage />},
     ],

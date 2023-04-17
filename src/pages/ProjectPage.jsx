@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import EditButton from "../components/EditButton/EditButton";
 
 function ProjectPage() {
   // Hooks
@@ -52,6 +53,9 @@ function ProjectPage() {
        </ul>
         <i>Project created {new Date(projectData.date_created).toDateString()}</i>
       </div>
+      <div>
+      <EditButton editUrl={`/project/${id}/edit`} buttonText="Edit Pledge" />
+      </div>
       
       {/* <div>
         <h3>Supporters:</h3>
@@ -77,6 +81,7 @@ function ProjectPage() {
         <h3>Total pledged:</h3>
         </div> */} 
     </div>
+    
    );
  }
 
