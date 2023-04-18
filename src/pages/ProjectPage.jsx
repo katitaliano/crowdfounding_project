@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import EditButton from "../components/EditButton/EditButton";
+import EditButton from "../components/Buttons/EditButton";
 
 function ProjectPage() {
   // Hooks
@@ -53,7 +53,7 @@ function ProjectPage() {
        </ul>
         <i>Project created {new Date(projectData.date_created).toDateString()}</i>
       </div>
-      <div>
+      <div className="form-item">
       <EditButton editUrl={`/project/${id}/edit`} buttonText="Edit Pledge" />
       </div>
       
