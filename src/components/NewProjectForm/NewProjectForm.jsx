@@ -101,7 +101,7 @@ function ProjectForm() {
                 const id = data.id;
     
                 // Navigate to the project page with the extracted `id`
-                navigate(`/project/${id}`);
+                navigate(`/projects/${id}`);
             } else {
                 console.log("Error:", response.statusText);
             }
@@ -127,8 +127,6 @@ function ProjectForm() {
             </div>
             <div className="form-item">
                 <label htmlFor="image">Image: </label>
-                <input type="url" id="image" name="image" onChange={handleChange} placeholder="Insert image link" />
-                <p>OR</p>
                 <input type="url" id="image" name="image" onChange={handleFileUpload} />
             </div>
             <div className="form-item">
